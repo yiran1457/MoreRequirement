@@ -1,0 +1,5 @@
+{
+  "more_requirement.holo.advancement_requirement": "You need to obtain the [ %s ] advancement to unlock the crafting of this item",
+  "more_requirement.holo.biome_requirement": "You need to be in the [ %s ] biome to unlock the crafting of this item",
+  "more_requirement.holo.multiblock_requirement": "You need to have the following blocks within a %sx%sx%s area centered on the workstation"
+}

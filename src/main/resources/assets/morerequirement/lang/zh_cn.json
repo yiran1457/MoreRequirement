@@ -1,0 +1,5 @@
+{
+  "more_requirement.holo.advancement_requirement": "你需要获取[ %s ]进度来解锁该项目的制作",
+  "more_requirement.holo.biome_requirement": "你需要在[ %s ]群系来解锁该项目的制作",
+  "more_requirement.holo.multiblock_requirement": "你需要在以加工站为中心的%sx%sx%s区域有以下方块"
+}
