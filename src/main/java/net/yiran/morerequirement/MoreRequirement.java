@@ -5,10 +5,7 @@ import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
-import net.yiran.morerequirement.requirements.AdvancementRequirement;
-import net.yiran.morerequirement.requirements.BiomeRequirement;
-import net.yiran.morerequirement.requirements.CustomRequirement;
-import net.yiran.morerequirement.requirements.MultiblockRequirement;
+import net.yiran.morerequirement.requirements.*;
 import org.slf4j.Logger;
 import se.mickelus.tetra.module.schematic.requirement.CraftingRequirementDeserializer;
 
@@ -25,7 +22,13 @@ public class MoreRequirement {
     private void commonSetup(final FMLCommonSetupEvent event) {
         CraftingRequirementDeserializer.registerSupplier("mr:advancement", AdvancementRequirement.class);
         CraftingRequirementDeserializer.registerSupplier("mr:biome", BiomeRequirement.class);
-        CraftingRequirementDeserializer.registerSupplier("mr:mbd", MultiblockRequirement.class);
         CraftingRequirementDeserializer.registerSupplier("mr:custom", CustomRequirement.class);
+        CraftingRequirementDeserializer.registerSupplier("mr:dimension", DimensionRequirement.class);
+        CraftingRequirementDeserializer.registerSupplier("mr:height", HeightRequirement.class);
+        CraftingRequirementDeserializer.registerSupplier("mr:moon_phase", MoonPhaseRequirement.class);
+        CraftingRequirementDeserializer.registerSupplier("mr:mbd", MultiblockRequirement.class);
+        CraftingRequirementDeserializer.registerSupplier("mr:see_sky", SeeSkyRequirement.class);
+        CraftingRequirementDeserializer.registerSupplier("mr:time", TimeRequirement.class);
+        CraftingRequirementDeserializer.registerSupplier("mr:weather", WeatherRequirement.class);
     }
 }

@@ -1,5 +1,32 @@
 {
   "more_requirement.holo.advancement_requirement": "你需要获取[ %s ]进度来解锁该项目的制作",
+
   "more_requirement.holo.biome_requirement": "你需要在[ %s ]群系来解锁该项目的制作",
-  "more_requirement.holo.multiblock_requirement": "你需要在以加工站为中心的%sx%sx%s区域有以下方块"
+
+  "more_requirement.holo.multiblock_requirement": "你需要在以加工站为中心的%sx%sx%s区域有以下方块",
+
+  "more_requirement.holo.height_requirement": "当加工站高度位于[ %s ~ %s ]直接时解锁该项目制作",
+
+  "more_requirement.holo.weather_requirement": "当前维度处于[ %s ]天气解锁该项目的制作",
+  "more_requirement.holo.weather_requirement.clear": "晴天",
+  "more_requirement.holo.weather_requirement.rain": "下雨",
+  "more_requirement.holo.weather_requirement.thunder": "雷暴",
+
+  "more_requirement.holo.dimension_requirement": "你需要在[ %s ]来解锁该项目的制作",
+
+  "more_requirement.holo.see_sky_requirement": "当加工站露天的时候解锁该项目的制作",
+
+  "more_requirement.holo.moon_phase_requirement": "当日月相为[ %s ]解锁该项目的制作",
+  "more_requirement.holo.moon_phase_requirement.1": "满月",
+  "more_requirement.holo.moon_phase_requirement.2": "亏凸月",
+  "more_requirement.holo.moon_phase_requirement.3": "下弦月",
+  "more_requirement.holo.moon_phase_requirement.4": "残月",
+  "more_requirement.holo.moon_phase_requirement.5": "新月",
+  "more_requirement.holo.moon_phase_requirement.6": "蛾眉月",
+  "more_requirement.holo.moon_phase_requirement.7": "上弦月",
+  "more_requirement.holo.moon_phase_requirement.8": "盈凸月",
+
+  "more_requirement.holo.time_requirement": "当处于[ %s ]时解锁该项目的制作",
+  "more_requirement.holo.time_requirement.day": "白天",
+  "more_requirement.holo.time_requirement.night": "夜晚"
 }

@@ -1,5 +1,23 @@
 {
   "more_requirement.holo.advancement_requirement": "You need to obtain the [ %s ] advancement to unlock the crafting of this item",
   "more_requirement.holo.biome_requirement": "You need to be in the [ %s ] biome to unlock the crafting of this item",
-  "more_requirement.holo.multiblock_requirement": "You need to have the following blocks within a %sx%sx%s area centered on the workstation"
+  "more_requirement.holo.multiblock_requirement": "You need to have the following blocks within a %sx%sx%s area centered on the workstation",
+  "more_requirement.holo.weather_requirement": "The current dimension must be in [ %s ] weather to unlock the crafting of this item",
+  "more_requirement.holo.weather_requirement.clear": "Clear",
+  "more_requirement.holo.weather_requirement.rain": "Raining",
+  "more_requirement.holo.weather_requirement.thunder": "Thunderstorm",
+  "more_requirement.holo.dimension_requirement": "You must be in [ %s ] to unlock the crafting of this item",
+  "more_requirement.holo.see_sky_requirement": "The crafting station must be under an open sky to unlock the crafting of this item",
+  "more_requirement.holo.moon_phase_requirement": "The moon phase must be [ %s ] to unlock the crafting of this item",
+  "more_requirement.holo.moon_phase_requirement.1": "Full Moon",
+  "more_requirement.holo.moon_phase_requirement.2": "Waning Gibbous",
+  "more_requirement.holo.moon_phase_requirement.3": "Last Quarter",
+  "more_requirement.holo.moon_phase_requirement.4": "Waning Crescent",
+  "more_requirement.holo.moon_phase_requirement.5": "New Moon",
+  "more_requirement.holo.moon_phase_requirement.6": "Waxing Crescent",
+  "more_requirement.holo.moon_phase_requirement.7": "First Quarter",
+  "more_requirement.holo.moon_phase_requirement.8": "Waxing Gibbous",
+  "more_requirement.holo.time_requirement": "The time must be [ %s ] to unlock the crafting of this item",
+  "more_requirement.holo.time_requirement.day": "Day",
+  "more_requirement.holo.time_requirement.night": "Night"
 }
