@@ -6,6 +6,7 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.yiran.morerequirement.requirements.*;
+import net.yiran.morerequirement.sorter.MyStatRegistry;
 import org.slf4j.Logger;
 import se.mickelus.tetra.module.schematic.requirement.CraftingRequirementDeserializer;
 
@@ -17,6 +18,7 @@ public class MoreRequirement {
     public MoreRequirement() {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
         modEventBus.addListener(this::commonSetup);
+        modEventBus.addListener(MyStatRegistry::init);
     }
 
     private void commonSetup(final FMLCommonSetupEvent event) {
