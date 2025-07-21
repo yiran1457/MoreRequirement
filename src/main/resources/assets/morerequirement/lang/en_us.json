@@ -1,8 +1,10 @@
 {
   "more_requirement.holo.advancement_requirement": "You need to obtain the [ %s ] advancement to unlock the crafting of this item",
   "more_requirement.holo.biome_requirement": "You need to be in the [ %s ] biome to unlock the crafting of this item",
-  "more_requirement.holo.multiblock_requirement": "You need to have the following blocks within a %sx%sx%s area centered on the workstation",
+  "more_requirement.holo.multiblock_requirement": "You need to have the following blocks within a [ %sx%sx%s ] area centered on the workstation",
+  "more_requirement.holo.entities_requirement": "You need to have the following entities within a [ %sx%sx%s ] area centered on the workstation",
   "more_requirement.holo.height_requirement": "Crafting unlocked when workbench height is between [ %s ~ %s ]",
+  "more_requirement.holo.potion_effect_requirement": "You must have at least [ %s level %s for %s seconds ] potion effect to unlock",
   "more_requirement.holo.weather_requirement": "The current dimension must be in [ %s ] weather to unlock the crafting of this item",
   "more_requirement.holo.weather_requirement.clear": "Clear",
   "more_requirement.holo.weather_requirement.rain": "Raining",

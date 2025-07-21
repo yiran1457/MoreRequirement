@@ -5,24 +5,32 @@ import se.mickelus.tetra.module.schematic.CraftingContext;
 import se.mickelus.tetra.module.schematic.requirement.CraftingRequirement;
 
 import javax.annotation.Nullable;
+import java.util.HashMap;
 import java.util.List;
-import java.util.function.Predicate;
+import java.util.Map;
 
 public class CustomRequirement implements CraftingRequirement {
-    public static Predicate<CraftingContext> consumer = cxt -> true;
+    public static CustomFunction DEFAULT = cxt -> true;
+    public static Map<String,CustomFunction> functions = new HashMap<>();
+    public String key;
 
-    public static void setCustomFunction(Predicate<CraftingContext> cxt) {
-        CustomRequirement.consumer = cxt;
+    public static void registerCustomFunction(String key,CustomFunction cxt) {
+        functions.put(key,cxt);
     }
 
     @Override
     public boolean test(CraftingContext craftingContext) {
-        return consumer.test(craftingContext);
+        return functions.getOrDefault(key,DEFAULT).test(craftingContext);
     }
 
     @Nullable
     @Override
     public List<Component> getDescription() {
-        return CraftingRequirement.super.getDescription();
+        return List.of(Component.translatable("more_requirement.holo.custom_requirement"+key));
+    }
+
+    @FunctionalInterface
+    public interface CustomFunction{
+        boolean test(CraftingContext craftingContext);
     }
 }

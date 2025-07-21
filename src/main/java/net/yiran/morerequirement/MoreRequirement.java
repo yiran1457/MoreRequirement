@@ -26,9 +26,11 @@ public class MoreRequirement {
         CraftingRequirementDeserializer.registerSupplier("mr:biome", BiomeRequirement.class);
         CraftingRequirementDeserializer.registerSupplier("mr:custom", CustomRequirement.class);
         CraftingRequirementDeserializer.registerSupplier("mr:dimension", DimensionRequirement.class);
+        CraftingRequirementDeserializer.registerSupplier("mr:entities", EntitiesRequirement.class);
         CraftingRequirementDeserializer.registerSupplier("mr:height", HeightRequirement.class);
         CraftingRequirementDeserializer.registerSupplier("mr:moon_phase", MoonPhaseRequirement.class);
         CraftingRequirementDeserializer.registerSupplier("mr:mbd", MultiblockRequirement.class);
+        CraftingRequirementDeserializer.registerSupplier("mr:potion", PotionEffectRequirement.class);
         CraftingRequirementDeserializer.registerSupplier("mr:see_sky", SeeSkyRequirement.class);
         CraftingRequirementDeserializer.registerSupplier("mr:time", TimeRequirement.class);
         CraftingRequirementDeserializer.registerSupplier("mr:weather", WeatherRequirement.class);
