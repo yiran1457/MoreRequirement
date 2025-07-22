@@ -12,7 +12,6 @@ import java.util.List;
 public class HeightRequirement implements CraftingRequirement {
     public int min = -99;
     public int max = 333;
-    public ResourceLocation dimension;
 
     @Override
     public boolean test(CraftingContext cxt) {

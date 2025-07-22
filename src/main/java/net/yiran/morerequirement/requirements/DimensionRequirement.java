@@ -21,6 +21,6 @@ public class DimensionRequirement implements CraftingRequirement {
     @Nullable
     @Override
     public List<Component> getDescription() {
-        return List.of(Component.translatable("more_requirement.holo.dimension_requirement", Component.translatable(dimension.toLanguageKey())));
+        return List.of(Component.translatable("more_requirement.holo.dimension_requirement", Component.translatable(dimension.toString())));
     }
 }

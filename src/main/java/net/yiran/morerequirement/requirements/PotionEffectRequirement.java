@@ -12,8 +12,8 @@ import java.util.List;
 
 public class PotionEffectRequirement implements CraftingRequirement {
     public MobEffect effect;
-    public int duration=0;
-    public int amplifier=0;
+    public int duration = 0;
+    public int amplifier = 0;
 
     @Override
     public boolean test(CraftingContext cxt) {
@@ -26,6 +26,6 @@ public class PotionEffectRequirement implements CraftingRequirement {
     @Nullable
     @Override
     public List<Component> getDescription() {
-        return List.of(Component.translatable("more_requirement.holo.potion_effect_requirement", effect.getDisplayName(),amplifier+1, duration/20));
+        return List.of(Component.translatable("more_requirement.holo.potion_effect_requirement", effect.getDisplayName(), amplifier + 1, duration / 20));
     }
 }

@@ -22,5 +22,6 @@
   "more_requirement.holo.moon_phase_requirement.8": "Waxing Gibbous",
   "more_requirement.holo.time_requirement": "The time must be [ %s ] to unlock the crafting of this item",
   "more_requirement.holo.time_requirement.day": "Day",
-  "more_requirement.holo.time_requirement.night": "Night"
+  "more_requirement.holo.time_requirement.night": "Night",
+  "more_requirement.group.empty": "[ERROR]：Unknown Group"
 }
