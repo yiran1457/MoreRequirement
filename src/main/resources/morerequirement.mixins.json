@@ -1,0 +1,15 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "net.yiran.morerequirement.core.mixins",
+  "compatibilityLevel": "JAVA_17",
+  "mixins": [
+    "TransformationDeserializerMixin"
+  ],
+  "client": [
+    "ConfigSchematicMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

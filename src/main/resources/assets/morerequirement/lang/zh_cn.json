@@ -33,5 +33,6 @@
   "more_requirement.holo.time_requirement": "当处于[ %s ]时解锁该项目的制作",
   "more_requirement.holo.time_requirement.day": "白天",
   "more_requirement.holo.time_requirement.night": "夜晚",
-  "more_requirement.group.empty": "[ERROR]：未知分组"
+  "more_requirement.group.empty": "[ERROR]：未知分组",
+  "tetra.holo.material_reveal": "你需要在物品栏拥有制作材料"
 }

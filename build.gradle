@@ -154,9 +154,9 @@ dependencies {
 }
 
 // Uncomment the lines below if you wish to configure mixin. The mixin file should be named modid.mixins.json.
-/*
+
 mixin {
-    add sourceSets.main, "morerequirement.refmap.json"
+    //add sourceSets.main, "morerequirement.refmap.json"
     config "morerequirement.mixins.json"
 }
 
@@ -165,7 +165,7 @@ jar {
     manifest.attributes([
             "MixinConfigs": "morerequirement.mixins.json"
     ])
-}*/
+}
 /*
 mixin {
     add sourceSets.main, "${mod_id}.refmap.json"
