@@ -23,5 +23,6 @@
   "more_requirement.holo.time_requirement": "The time must be [ %s ] to unlock the crafting of this item",
   "more_requirement.holo.time_requirement.day": "Day",
   "more_requirement.holo.time_requirement.night": "Night",
-  "more_requirement.group.empty": "[ERROR]：Unknown Group"
+  "more_requirement.group.empty": "[ERROR]：Unknown Group",
+  "tetra.holo.module_requirement.module": "Module "
 }
