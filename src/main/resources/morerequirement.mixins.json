@@ -8,7 +8,7 @@
   ],
   "client": [
     "ConfigSchematicMixin",
-    "ConfigSchematicMixin"
+    "ModuleRequirementMixin"
   ],
   "injectors": {
     "defaultRequire": 1

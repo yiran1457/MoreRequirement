@@ -1,8 +1,10 @@
 package net.yiran.morerequirement.requirements;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.state.BlockState;
 import se.mickelus.tetra.module.schematic.CraftingContext;
 import se.mickelus.tetra.module.schematic.requirement.CraftingRequirement;
 
@@ -16,9 +18,23 @@ public class SeeSkyRequirement implements CraftingRequirement {
         if (level == null) return false;
         BlockPos pos = cxt.pos;
         if (pos == null) return false;
-        return level.canSeeSky(pos);
+        return  isExposedToSky(pos, level);
     }
-
+    public static boolean isExposedToSky(BlockPos pos,Level level) {
+        BlockPos.MutableBlockPos mut = pos.above().mutable();
+        while (mut.getY() < level.getMaxBuildHeight()) {
+            BlockState state = level.getBlockState(mut);
+            if (state.isAir()) {
+                mut.move(Direction.UP);
+                continue;
+            }
+            if (state.blocksMotion()) {
+                return false;
+            }
+            mut.move(Direction.UP);
+        }
+        return true;
+    }
     @Nullable
     @Override
     public List<Component> getDescription() {
