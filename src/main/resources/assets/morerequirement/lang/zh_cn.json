@@ -18,6 +18,8 @@
 
   "more_requirement.holo.dimension_requirement": "你需要在[ %s ]来解锁该项目的制作",
 
+  "more_requirement.holo.other_module_requirement": "需要[ %s ]模块满足以下要求",
+
   "more_requirement.holo.see_sky_requirement": "当加工站露天的时候解锁该项目的制作",
 
   "more_requirement.holo.moon_phase_requirement": "当日月相为[ %s ]解锁该项目的制作",

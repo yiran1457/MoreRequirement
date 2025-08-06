@@ -10,6 +10,7 @@
   "more_requirement.holo.weather_requirement.rain": "Raining",
   "more_requirement.holo.weather_requirement.thunder": "Thunderstorm",
   "more_requirement.holo.dimension_requirement": "You must be in [ %s ] to unlock the crafting of this item",
+  "more_requirement.holo.other_module_requirement": "Requires the [ %s ] module to meet the following requirements",
   "more_requirement.holo.see_sky_requirement": "The crafting station must be under an open sky to unlock the crafting of this item",
   "more_requirement.holo.moon_phase_requirement": "The moon phase must be [ %s ] to unlock the crafting of this item",
   "more_requirement.holo.moon_phase_requirement.1": "Full Moon",

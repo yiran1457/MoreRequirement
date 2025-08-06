@@ -6,9 +6,9 @@ import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
-import net.yiran.morerequirement.requirements.*;
 import net.yiran.morerequirement.data.MRDataManager;
 import net.yiran.morerequirement.data.MRUpdateDataPacket;
+import net.yiran.morerequirement.requirements.*;
 import net.yiran.morerequirement.requirements.grouprequirement.GroupRequirement;
 import net.yiran.morerequirement.sorter.MyStatRegistry;
 import org.slf4j.Logger;
@@ -39,6 +39,7 @@ public class MoreRequirement {
         CraftingRequirementDeserializer.registerSupplier("mr:moon_phase", MoonPhaseRequirement.class);
         CraftingRequirementDeserializer.registerSupplier("mr:mbd", MultiblockRequirement.class);
         CraftingRequirementDeserializer.registerSupplier("mr:potion", PotionEffectRequirement.class);
+        CraftingRequirementDeserializer.registerSupplier("mr:other_module", OtherModuleRequirement.class);
         CraftingRequirementDeserializer.registerSupplier("mr:see_sky", SeeSkyRequirement.class);
         CraftingRequirementDeserializer.registerSupplier("mr:time", TimeRequirement.class);
         CraftingRequirementDeserializer.registerSupplier("mr:weather", WeatherRequirement.class);

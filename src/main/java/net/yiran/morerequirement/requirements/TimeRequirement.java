@@ -15,11 +15,16 @@ public class TimeRequirement implements CraftingRequirement {
     public boolean test(CraftingContext cxt) {
         Level level = cxt.world;
         if (level == null) return false;
+        var timeOfDay = level.dayTime()%24000;
         return switch (time){
-            case "day" -> level.isDay();
-            case "night" -> level.isNight();
+            case "day" -> isDaytime(timeOfDay);
+            case "night" -> !isDaytime(timeOfDay);
             default -> false;
         };
+    }
+
+    public static boolean isDaytime(long timeOfDay) {
+        return timeOfDay >= 23950 || timeOfDay < 12750;
     }
 
     @Nullable

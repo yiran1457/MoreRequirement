@@ -1,8 +1,6 @@
 package net.yiran.morerequirement.requirements;
 
 import com.google.common.collect.ImmutableList;
-import net.minecraft.ChatFormatting;
-import net.minecraft.client.resources.language.I18n;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.level.Level;
@@ -55,24 +53,5 @@ public class MultiblockRequirement implements CraftingRequirement {
             }
         }
         return builder.build();
-        /*
-        ImmutableList.Builder<Component> builder = ImmutableList.builder();
-        Set<Map.Entry<Block, Integer>>  entrys = blocks.entrySet();
-        builder.add(Component.literal(I18n.get("tetra.holo.or_requirement")).withStyle(ChatFormatting.GRAY));
-
-        for(int i = 0; i <entrys.size(); ++i) {
-            List<Component> description = this.requirements[i].getDescription();
-            if (description != null) {
-                for(int j = 0; j < description.size(); ++j) {
-                    if (j == 0) {
-                        builder.add(Component.literal(i == this.requirements.length - 1 ? " §8└§r " : " §8├§r ").append((Component)description.get(j)));
-                    } else {
-                        builder.add(Component.literal(" §8│§r ").append((Component)description.get(j)));
-                    }
-                }
-            }
-        }
-
-        return builder.build();*/
     }
 }
