@@ -2,13 +2,13 @@ package net.yiran.morerequirement.sorter;
 
 
 import com.google.gson.JsonElement;
-import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import se.mickelus.tetra.gui.stats.getter.IStatGetter;
 
-import static se.mickelus.tetra.gui.stats.data.StatRegistry.*;
+import static se.mickelus.tetra.gui.stats.data.StatRegistry.gson;
+import static se.mickelus.tetra.gui.stats.data.StatRegistry.registerStatGetter;
 
 public class MyStatRegistry {
-    public static void init(FMLClientSetupEvent event) {
+    public static void init() {
         registerStatGetter("mr:item", MyStatRegistry::ItemGetter);
     }
 

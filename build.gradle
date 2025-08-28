@@ -123,10 +123,11 @@ repositories {
 }
 dependencies {
     modImplementation("curse.maven:modern-ui-352491:6199942")
+    //jarJar("curse.maven:modern-ui-352491:6199942")
     modImplementation("curse.maven:ibe-editor-256822:4994072")
     modImplementation("curse.maven:mutil-351914:6418901")
     modImplementation("curse.maven:tetra-289712:6418957")
-
+    modImplementation("curse.maven:jei-238222:6600311")
     // If you wish to declare dependencies against mods, make sure to use the 'mod*' configurations so that they're remapped.
 	// See https://github.com/neoforged/ModDevGradle/blob/main/LEGACY.md#remapping-mod-dependencies for more information.
 
