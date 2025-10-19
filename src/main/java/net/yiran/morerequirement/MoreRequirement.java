@@ -4,12 +4,16 @@ import com.mojang.logging.LogUtils;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
+import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
+import net.minecraftforge.fml.event.lifecycle.FMLConstructModEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import net.minecraftforge.fml.javafmlmod.FMLModContainer;
 import net.minecraftforge.fml.loading.FMLEnvironment;
+import net.yiran.morerequirement.craftefffect.CustomCraftingEffectOutcome;
 import net.yiran.morerequirement.data.MRDataManager;
 import net.yiran.morerequirement.data.MRUpdateDataPacket;
 import net.yiran.morerequirement.requirements.*;
@@ -17,6 +21,7 @@ import net.yiran.morerequirement.requirements.grouprequirement.GroupRequirement;
 import net.yiran.morerequirement.sorter.MyStatRegistry;
 import org.slf4j.Logger;
 import se.mickelus.mutil.network.PacketHandler;
+import se.mickelus.tetra.craftingeffect.CraftingEffectRegistry;
 import se.mickelus.tetra.module.schematic.requirement.CraftingRequirementDeserializer;
 
 @Mod(MoreRequirement.MODID)
@@ -26,18 +31,27 @@ public class MoreRequirement {
     public static IEventBus ModEventBus;
     public static PacketHandler NETWORK;
 
+    static {
+        ModList.get().getModContainerById("tetra").ifPresent(ModContainer -> {
+            if (ModContainer instanceof FMLModContainer fmlModContainer) {
+                fmlModContainer.getEventBus().addListener(MoreRequirement::onModLoaded);
+            }
+        });
+    }
+
     public MoreRequirement() {
         ModEventBus = FMLJavaModLoadingContext.get().getModEventBus();
         ModEventBus.addListener(this::commonSetup);
-        NETWORK = new PacketHandler(MODID,"data","1");
-        if(FMLEnvironment.dist == Dist.CLIENT){
+        NETWORK = new PacketHandler(MODID, "data", "1");
+        if (FMLEnvironment.dist == Dist.CLIENT) {
             MyStatRegistry.init();
         }
-        ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON,Config.SPEC);
-        MinecraftForge.EVENT_BUS.register(new MRDataManager());
-
+        ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, Config.SPEC);
+        MinecraftForge.EVENT_BUS.register(MRDataManager.instance);
         CreativeTabHandler.init();
+    }
 
+    public static void onModLoaded(FMLConstructModEvent event) {
         CraftingRequirementDeserializer.registerSupplier("mr:group", GroupRequirement.class);
         CraftingRequirementDeserializer.registerSupplier("mr:advancement", AdvancementRequirement.class);
         CraftingRequirementDeserializer.registerSupplier("mr:biome", BiomeRequirement.class);
@@ -52,9 +66,21 @@ public class MoreRequirement {
         CraftingRequirementDeserializer.registerSupplier("mr:see_sky", SeeSkyRequirement.class);
         CraftingRequirementDeserializer.registerSupplier("mr:time", TimeRequirement.class);
         CraftingRequirementDeserializer.registerSupplier("mr:weather", WeatherRequirement.class);
-
+        CraftingEffectRegistry.registerConditionType("mr:advancement", AdvancementRequirement.class);
+        CraftingEffectRegistry.registerConditionType("mr:biome", BiomeRequirement.class);
+        CraftingEffectRegistry.registerConditionType("mr:custom", CustomRequirement.class);
+        CraftingEffectRegistry.registerConditionType("mr:dimension", DimensionRequirement.class);
+        CraftingEffectRegistry.registerConditionType("mr:entities", EntitiesRequirement.class);
+        CraftingEffectRegistry.registerConditionType("mr:height", HeightRequirement.class);
+        CraftingEffectRegistry.registerConditionType("mr:moon_phase", MoonPhaseRequirement.class);
+        CraftingEffectRegistry.registerConditionType("mr:mbd", MultiblockRequirement.class);
+        CraftingEffectRegistry.registerConditionType("mr:potion", PotionEffectRequirement.class);
+        CraftingEffectRegistry.registerConditionType("mr:see_sky", SeeSkyRequirement.class);
+        CraftingEffectRegistry.registerConditionType("mr:time", TimeRequirement.class);
+        CraftingEffectRegistry.registerConditionType("mr:wrap_target", WarpTargetItemRequirement.class);
+        CraftingEffectRegistry.registerConditionType("mr:weather", WeatherRequirement.class);
+        CraftingEffectRegistry.registerEffectType("mr:custom", CustomCraftingEffectOutcome.class);
     }
-
 
     private void commonSetup(final FMLCommonSetupEvent event) {
         NETWORK.registerPacket(MRUpdateDataPacket.class, MRUpdateDataPacket::new);

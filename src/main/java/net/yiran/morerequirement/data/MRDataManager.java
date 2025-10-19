@@ -21,14 +21,13 @@ import static net.yiran.morerequirement.MoreRequirement.NETWORK;
 import static se.mickelus.tetra.data.DataManager.gson;
 
 public class MRDataManager implements DataDistributor {
-    public static MRDataManager instance;
+    public static MRDataManager instance = new MRDataManager();
 
     public DataStore<GroupRequirementStore> groupRequirement;
     public DataStore<ScrollData[]> scrolls;
     public List<DataStore<?>> dataStores=new ArrayList<>(10);
 
     public MRDataManager() {
-        instance = this;
         groupRequirement = new DataStore<>(gson, MoreRequirement.MODID,"group", GroupRequirementStore.class,this);
         scrolls = new DataStore<>(gson, MoreRequirement.MODID,"scrolls", ScrollData[].class,this);
         groupRequirement.onReload(()->GroupRequirementStore.handler(groupRequirement.getData()));

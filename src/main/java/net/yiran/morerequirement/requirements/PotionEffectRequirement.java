@@ -1,19 +1,34 @@
 package net.yiran.morerequirement.requirements;
 
+import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraftforge.common.ToolAction;
+import se.mickelus.tetra.craftingeffect.condition.CraftingEffectCondition;
 import se.mickelus.tetra.module.schematic.CraftingContext;
+import se.mickelus.tetra.module.schematic.UpgradeSchematic;
 import se.mickelus.tetra.module.schematic.requirement.CraftingRequirement;
 
 import javax.annotation.Nullable;
 import java.util.List;
+import java.util.Map;
 
-public class PotionEffectRequirement implements CraftingRequirement {
+public class PotionEffectRequirement implements CraftingRequirement, CraftingEffectCondition {
     public MobEffect effect;
     public int duration = 0;
     public int amplifier = 0;
+
+    @Override
+    public boolean test(ResourceLocation[] unlocks, ItemStack upgradedStack, String slot, boolean isReplacing, Player player, ItemStack[] materials, Map<ToolAction, Integer> tools, UpgradeSchematic schematic, Level world, BlockPos pos, BlockState blockState) {
+        MobEffectInstance mobEffectInstance = player.getEffect(effect);
+        return mobEffectInstance != null && mobEffectInstance.getAmplifier() >= amplifier && mobEffectInstance.getDuration() >= duration;
+    }
 
     @Override
     public boolean test(CraftingContext cxt) {
