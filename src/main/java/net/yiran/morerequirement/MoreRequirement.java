@@ -4,14 +4,11 @@ import com.mojang.logging.LogUtils;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
-import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
-import net.minecraftforge.fml.event.lifecycle.FMLConstructModEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
-import net.minecraftforge.fml.javafmlmod.FMLModContainer;
 import net.minecraftforge.fml.loading.FMLEnvironment;
 import net.yiran.morerequirement.craftefffect.CustomCraftingEffectOutcome;
 import net.yiran.morerequirement.data.MRDataManager;
@@ -24,20 +21,13 @@ import se.mickelus.mutil.network.PacketHandler;
 import se.mickelus.tetra.craftingeffect.CraftingEffectRegistry;
 import se.mickelus.tetra.module.schematic.requirement.CraftingRequirementDeserializer;
 
+@SuppressWarnings("removal")
 @Mod(MoreRequirement.MODID)
 public class MoreRequirement {
     public static final String MODID = "morerequirement";
     private static final Logger LOGGER = LogUtils.getLogger();
     public static IEventBus ModEventBus;
     public static PacketHandler NETWORK;
-
-    static {
-        ModList.get().getModContainerById("tetra").ifPresent(ModContainer -> {
-            if (ModContainer instanceof FMLModContainer fmlModContainer) {
-                fmlModContainer.getEventBus().addListener(MoreRequirement::onModLoaded);
-            }
-        });
-    }
 
     public MoreRequirement() {
         ModEventBus = FMLJavaModLoadingContext.get().getModEventBus();
@@ -51,7 +41,7 @@ public class MoreRequirement {
         CreativeTabHandler.init();
     }
 
-    public static void onModLoaded(FMLConstructModEvent event) {
+    public static void onModLoaded() {
         CraftingRequirementDeserializer.registerSupplier("mr:group", GroupRequirement.class);
         CraftingRequirementDeserializer.registerSupplier("mr:advancement", AdvancementRequirement.class);
         CraftingRequirementDeserializer.registerSupplier("mr:biome", BiomeRequirement.class);
