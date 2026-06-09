@@ -17,7 +17,7 @@ public class MyStatRegistry {
         return new StatGetterItem(itemData.stat, itemData.items, itemData.tag);
     }
 
-    public static record ItemData(IStatGetter stat,String[] items,String tag){
+    public record ItemData(IStatGetter stat, String[] items, String tag){
         public ItemData(IStatGetter stat, String[] items, String tag){
             this.stat = stat;
             this.items = items;

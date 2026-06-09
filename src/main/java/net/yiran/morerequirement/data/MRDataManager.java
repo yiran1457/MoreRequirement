@@ -11,7 +11,6 @@ import net.yiran.morerequirement.MoreRequirement;
 import net.yiran.morerequirement.requirements.grouprequirement.GroupRequirementStore;
 import se.mickelus.mutil.data.DataDistributor;
 import se.mickelus.mutil.data.DataStore;
-import se.mickelus.tetra.blocks.scroll.ScrollData;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,14 +23,12 @@ public class MRDataManager implements DataDistributor {
     public static MRDataManager instance = new MRDataManager();
 
     public DataStore<GroupRequirementStore> groupRequirement;
-    public DataStore<ScrollData[]> scrolls;
     public List<DataStore<?>> dataStores=new ArrayList<>(10);
 
     public MRDataManager() {
         groupRequirement = new DataStore<>(gson, MoreRequirement.MODID,"group", GroupRequirementStore.class,this);
-        scrolls = new DataStore<>(gson, MoreRequirement.MODID,"scrolls", ScrollData[].class,this);
         groupRequirement.onReload(()->GroupRequirementStore.handler(groupRequirement.getData()));
-        addDatastore(groupRequirement,scrolls);
+        addDatastore(groupRequirement);
     }
 
     public void addDatastore(DataStore<?>... datastore) {
@@ -55,8 +52,6 @@ public class MRDataManager implements DataDistributor {
         dataStores.stream()
                 .filter(dataStore -> dataStore.getDirectory().equals(directory))
                 .forEach(dataStore -> dataStore.loadFromPacket(data));
-        /*if (groupRequirement.getDirectory().equals(directory))
-            groupRequirement.loadFromPacket(data);*/
     }
 
     @Override
